@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"><h2>Listado de Estudiantes</h2></span>
+                    <button class="btn btn-success float-end" routerLink="/crear-estudiante">Nuevo</button>
+                    <table class="table mt-2">
+                        <thead>
+                          <tr>
+                            <th scope="col">Ci</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha Nacimiento</th>
+                            <th scope="col">Carrera</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let student of students">
+                            <th scope="row">{{student.ci}}</th>
+                            <td>{{student.nombre}}</td>
+                            <td>{{student.fechaDeNacimiento}}</td>
+                            <td>{{student.carrera}}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning">
+                                    <i class="bi bi-pencil-square" [routerLink]="['editar-estudiante',student.ci]"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger ms-2">
+                                    <i class="bi bi-trash-fill" (click)="deleteStudent(student.ci)"></i>
+                                </button>
+                            </td>
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

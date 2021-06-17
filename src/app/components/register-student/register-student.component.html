@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <span class="titulo">
+                        <h1>{{title | uppercase}}</h1>
+                    </span>
+                    <form action="" class="mt-3" [formGroup]="studentForm" (ngSubmit)="registerStudent()">
+                        <div class="mb-3">
+                            <div class="mt-3">
+                                <input type="number" formControlName="ci"
+                                class="form-control form-control-lg"  placeholder="CI">
+                                <div class="text-danger"
+                                    *ngIf="studentForm.get('ciAlumno')?.hasError('required') && studentForm.get('ciAlumno')?.touched">
+                                    <span>El CI del Alumno <strong> es obligatorio</strong></span>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <input type="text" formControlName="nombre"
+                                class="form-control form-control-lg"  placeholder="Nombre">
+                                <div class="text-danger"
+                                    *ngIf="studentForm.get('nombre')?.hasError('required') && studentForm.get('nombre')?.touched">
+                                    <span>El nombre del Alumno <strong> es obligatorio</strong></span>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <input type="text" formControlName="fechaNacimiento" 
+                                class="form-control form-control-lg"  placeholder="Fecha Nacimiento">
+                                <div class="text-danger"
+                                    *ngIf="studentForm.get('fechaNacimiento')?.hasError('required') && studentForm.get('fechaNacimiento')?.touched">
+                                    <span>La Fecha de Nacimiento <strong> es obligatorio</strong></span>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <input type="text" formControlName="carreraDeInteres" 
+                                class="form-control form-control-lg"  placeholder="Carrera de Interes">
+                                <div class="text-danger"
+                                    *ngIf="studentForm.get('carreraDeInteres')?.hasError('required') && studentForm.get('carreraDeInteres')?.touched">
+                                    <span>La carrera de interes <strong> es obligatorio</strong></span>
+                                </div>
+                            </div>
+                            <!-- <div class="mt-3">
+                                    <input matInput [matDatepicker]="picker" formControlName="fecha">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                            </div> -->
+                            <div class="mt-3">
+                                <button routerLink='/' class="btn btn-danger btn-lg float-start">Cancelar</button>
+                                <button type="submit" class="btn btn-success btn-lg float-end">Aceptar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
